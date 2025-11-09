@@ -153,3 +153,154 @@ section{padding:68px 0;border-top:1px solid var(--line)}
   .footgrid{grid-template-columns:1fr 1fr}
   .cta-bar{flex-direction:column;align-items:flex-start}
 }
+
+/* FORM CONTAINER */
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  background: var(--bg-2);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  padding: 30px;
+  box-shadow: var(--shadow);
+}
+
+/* INPUT FIELDS */
+.form label {
+  font-size: 0.95rem;
+  color: var(--text);
+  display: block;
+  margin-bottom: 6px;
+}
+
+.form input,
+.form textarea {
+  width: 100%;
+  padding: 12px 14px;
+  border-radius: 10px;
+  border: 1px solid var(--line);
+  background: #0e1219;
+  color: var(--text);
+  font-size: 0.95rem;
+  transition: border-color 0.3s ease, background 0.3s ease;
+}
+
+.form input:focus,
+.form textarea:focus {
+  border-color: var(--cyan);
+  background: #0f141f;
+  outline: none;
+}
+
+/* CONTACT FORM ROW — CHECKBOX + BUTTON */
+.form-row {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 20px;
+  margin-top: 20px;
+  flex-wrap: wrap;
+}
+
+/* Checkbox & Label */
+.checkbox-label {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.95rem;
+  color: var(--muted);
+  cursor: pointer;
+  user-select: none;
+}
+
+.checkbox-label input[type="checkbox"] {
+  appearance: none;
+  width: 10px;
+  height: 10px;
+  border: 2px solid var(--cyan);
+  border-radius: 4px;
+  background: transparent;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  display: inline-block;
+  vertical-align: middle;
+  position: relative;
+  top: 0px; /* ✅ fixes that tiny lift */
+}
+
+.checkbox-label input[type="checkbox"]:hover {
+  box-shadow: 0 0 6px rgba(0, 229, 255, 0.5);
+}
+
+.checkbox-label input[type="checkbox"]:checked {
+  background: var(--cyan);
+  box-shadow: 0 0 10px rgba(0, 229, 255, 0.6);
+  border-color: var(--cyan);
+}
+
+.checkbox-label input[type="checkbox"]:checked::after {
+  content: "✓";
+  position: absolute;
+  color: #000;
+  font-weight: 700;
+  left: 3px;
+  top: -1px;
+  font-size: 13px;
+}
+
+/* Button — glowing, modernized */
+.form .btn {
+  padding: 12px 26px;
+  background: linear-gradient(90deg, var(--blue), var(--cyan));
+  border: none;
+  border-radius: 12px;
+  color: #fff;
+  font-weight: 700;
+  font-size: 0.95rem;
+  cursor: pointer;
+  box-shadow: 0 0 20px rgba(0, 229, 255, 0.25);
+  transition: all 0.3s ease;
+}
+
+.form .btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 0 28px rgba(0, 229, 255, 0.55);
+  background: linear-gradient(90deg, var(--cyan), var(--blue));
+}
+
+/* Contact layout grid */
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+  align-items: start;
+  padding-top: 40px;
+}
+
+.contact-info {
+  background: var(--bg-2);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  padding: 30px;
+  box-shadow: var(--shadow);
+}
+
+/* Mobile responsive */
+@media (max-width: 900px) {
+  .contact-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 600px) {
+  .form-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 14px;
+  }
+
+  .form .btn {
+    width: 100%;
+  }
+}
